@@ -9,11 +9,11 @@
 
 </head>
 <body>
-    <header id="titleQ"> 
+    <header> 
         <h1> WEB API CODE QUIZ</h1> 
     </header>
 
-
+    <main>
 
     </main>
         <section id="front-page">
@@ -29,21 +29,26 @@
                     
             </div>
 
-           
-
-
-
-        </section>
-        <section id="timer"> 
-        
-                <h1 class="time" style="text-align:right;"></h1>
-                <div id="timer"></div>
+            <div id="Timer">
                 
-                <!-- <button class="Timer">Timer</button> -->
+                <button class="Timer">Timer</button>
                    
            </div>
+
+
+
         </section>
-      
+            
+    
+
+
+
+    <!-- <section id="timer">
+        <h3 class="timer" style="text-align:end;">Timer</h3>
+        <div id="timer"></div>
+
+    </section> -->
+
 <!-- 
     I click the start button
 THEN a timer starts and I am presented with a question -->
@@ -53,46 +58,41 @@ THEN a timer starts and I am presented with a question -->
        
         <section class="questions">
 
-            
-        
 
-            <div class="bcontainer">
-                <div>
-                    <h3 class="list-q" id="question">Commonly used </h3> 
+             <div class="bcontainer">
+                 
+                    <h3 class="list-q" id="question"> </h3> 
                     <ul class="list-answers" id="answers">
-                    <li  id="choice1"></li>
-                    <li  id="choice2"></li>
-                    <li  id="choice3"></li>
-                    <li  id="choice4"></li>
-                    </ul>
+                        <li class="ans1" id="choice1"></li>
+                        <li class="ans1" id="choice2"></li>
+                        <li class="ans1" id="choice3"></li>
+                        <li class="ans1" id="choice4"></li>
+                     </ul>
+                 
                 </div>
-            
-                
-
-            </div>
-            
-            
 
 
         </section>
-        
-        <section id="end-page">
-            
 
-            <!-- <p> Try to answer these questions under 60 seconds. Keep in mind that incorrect answers will penalize your time by 10 seconds.</p>
         
-                <div id="start-quiz">
-                <button class="start-button">START</button>
-                </div> -->
+    
+         <section id="end-page">
+          
+
+        <!-- <p> Try to answer these questions under 60 seconds. Keep in mind that incorrect answers will penalize your time by 10 seconds.</p>
+    
+            <div id="start-quiz">
+            <button class="start-button">START</button>
+            </div> -->
 
         </section>
 
-        
-        
-        
-        
-        <script src="./assets/js/script.js"></script>  
+    
+    
+    
+    
+    <script src="./assets/js/script.js"></script>  
 
- </body>
+</body>
 
-    </html>
+</html>

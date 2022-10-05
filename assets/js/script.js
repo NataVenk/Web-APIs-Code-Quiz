@@ -2,7 +2,7 @@
 var qTitle = document.querySelector("#titleQ")
 var timerEl=document.querySelector(".qtime");
 var topScoreEl = document.querySelector("top-score");
-var timerCount, userScore; 
+var timerCount, userScore; var questionindex=0
 var timerCount = 60;
 // var topScoreheader = document.querySelector("#top-Score-header")
 
@@ -20,7 +20,7 @@ var choiceB = document.getElementById("choice2")
 var choiceC = document.getElementById("choice3")
 var choiceD = document.getElementById("choice4")
 
-var aChoice = document.getElementsByClassName("btnanswer")
+// var aChoice = document.getElementsByClassName("btnanswer")
 var ansCorrect = "";
 
 
@@ -38,28 +38,28 @@ var questionArr=[{
 
 },{
     question:"this is question #2",
-    aChoice: ["bullion", "number", "string", "array"],
+    aChoice: ["2bullion", "number", "string", "array"],
     ansCorrect: [0]
    
 },{
     question:"this is question #3",
-    aChoice: ["bullion", "number", "string", "array"],
+    aChoice: ["3bullion", "number", "string", "array"],
     ansCorrect: [1]
     
 },{
     question:"this is question #4",
-    aChoice: ["bullion", "number", "string", "array"],
+    aChoice: ["4bullion", "number", "string", "array"],
     ansCorrect: [1]
     
 },{
     question:"this is question #5",
-    aChoice: ["bullion", "number", "string", "array"],
+    aChoice: ["5bullion", "number", "string", "array"],
     ansCorrect: [0]
   
     
 },{
     question:"this is question #6",
-    aChoice: ["bullion", "number", "string", "array"],
+    aChoice: ["6bullion", "number", "string", "array"],
     ansCorrect: [3]
 
     
@@ -104,7 +104,7 @@ function startQuiz() {
 function startTimer(){
 
     var timerInterval=setInterval(function(){
-        console.log(timerCount);
+        // console.log(timerCount);
         timerCount--; 
         timerEl.textContent = "Time left " + timerCount;
         if(timerCount === 0) {
@@ -128,10 +128,10 @@ startButton.addEventListener("click", startQuiz);
 
 function renderQuestion(){
    question.textContent=questionArr[questionindex].question
-   aChoice.textContent=questionArr[questionindex].aChoice[0]
-   aChoice.textContent=questionArr[questionindex].aChoice[1]
-   aChoice.textContent=questionArr[questionindex].aChoice[2]
-   aChoice.textContent=questionArr[questionindex].aChoice[3]
+   choiceA.textContent=questionArr[questionindex].aChoice[0]
+   choiceB.textContent=questionArr[questionindex].aChoice[1]
+   choiceC.textContent=questionArr[questionindex].aChoice[2]
+   choiceD.textContent=questionArr[questionindex].aChoice[3]
 
    console.log(questionArr[1].aChoice[1])
 //    choice1.textContent=questionArr[questionindex].choiceA
@@ -142,11 +142,20 @@ function renderQuestion(){
 }
 
 function checkAnswer(){
-  
+
+    if (ansCorrect == "true" ) {
+        questionindex ++;
+        score += 
+        alert ("Correct!")}
+    else {
+        questionindex ++;
+        timerCount = timerCount-10; 
+        alert ("Wrong!")}
+
     // if (answer == "true"){score++; alert("Correct!")}
     // else {timerCount= timerCount-10; alert ("Wrong!")};
-    questionindex += i;
-    renderQuestion();
+    // questionindex += i;
+    // renderQuestion();
 
 }
 // // ansCorrect.addEventListener("click", addScore);

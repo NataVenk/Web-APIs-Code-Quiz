@@ -1,6 +1,7 @@
 // console.log("here i am")
 
 var timerEl=document.querySelector(".qtime");
+var topScoreEl = document.querySelector("top-score");
 var timerCount, userScore, questionindex;
 var timerCount = 60;
 // document.getElementById("timer").innerHTML = "Time" + timerInterval;
@@ -63,12 +64,14 @@ var questionArr=[{
 
 
 function StartScreen (){
+    timerEl.textContent = "Time left " + timerCount;
+    // how to move timer between title and paragraph?
     startQ.style.display = "block"; 
     endQz.style.display = "none"; 
     qBody.style.display = "none"; 
     topScore.style.display = "none";
-
-
+    timerEl.textContent = "Time left " + timerCount;
+    
 }
 
 StartScreen();
@@ -88,7 +91,7 @@ function startQuiz() {
     }
     qBody.style.display = "block"; 
     topScore.style.display = "none";
-    
+   
 }
 
 
@@ -100,7 +103,7 @@ function startTimer(){
         timerCount--; 
         timerEl.textContent = "Time left " + timerCount;
         if(timerCount === 0) {
-            presentScore();
+            presentResults();
             clearInterval(timerInterval);
             
           }
@@ -128,19 +131,21 @@ function renderQuestion(){
 }
 function checkAnswer(){
     // if (answer == "true"){score++; alert("Correct!")}
-    // else {alert ("Wrong!")};
+    // else {timerCount= timerCount-10; alert ("Wrong!")};
     questionindex += 1;
     renderQuestion();
 
 }
 
 
-function presentScore (){
+function presentResults (){
     qBody.style.display = "none";
     endQz.style.display = "block";
 
     
 }
+
+
 
 
 document.querySelector(".list-answers").addEventListener("click", checkAnswer)

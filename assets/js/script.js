@@ -2,7 +2,7 @@
 var qTitle = document.querySelector("#titleQ")
 var timerEl=document.querySelector(".qtime");
 var topScoreEl = document.querySelector("top-score");
-var timerCount, userScore; questionindex
+var timerCount, userScore; 
 var timerCount = 60;
 // var topScoreheader = document.querySelector("#top-Score-header")
 
@@ -20,7 +20,7 @@ var choiceB = document.getElementById("choice2")
 var choiceC = document.getElementById("choice3")
 var choiceD = document.getElementById("choice4")
 
-// var aChoice = document.getElementsByClassName("btnanswer")
+var aChoice = document.getElementsByClassName("btnanswer")
 var ansCorrect = "";
 
 
@@ -127,8 +127,8 @@ startButton.addEventListener("click", startQuiz);
 // Function call to present questions
 
 function renderQuestion(){
-   question.textContent=questionArr.question[i]
-   aChoice.textContent=questionArr[i].aChoice[0]
+   question.textContent=questionArr[questionindex].question
+   aChoice.textContent=questionArr[questionindex].aChoice[0]
    aChoice.textContent=questionArr[questionindex].aChoice[1]
    aChoice.textContent=questionArr[questionindex].aChoice[2]
    aChoice.textContent=questionArr[questionindex].aChoice[3]
@@ -142,14 +142,14 @@ function renderQuestion(){
 }
 
 function checkAnswer(){
-    for 
+  
     // if (answer == "true"){score++; alert("Correct!")}
     // else {timerCount= timerCount-10; alert ("Wrong!")};
     questionindex += i;
     renderQuestion();
 
 }
-// ansCorrect.addEventListener("click", addScore);
+// // ansCorrect.addEventListener("click", addScore);
 
 // function addScore(){
 //     score= i++

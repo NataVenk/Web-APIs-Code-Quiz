@@ -1,95 +1,79 @@
-console.log("here i am")
+// console.log("here i am")
 
-var timerEl=document.querySelector(".timer");
+var timerEl=document.querySelector(".qtime");
 var timerCount, userScore, questionindex;
-
-
 var timerCount = 60;
+// document.getElementById("timer").innerHTML = "Time" + timerInterval;
+
+var score = 0; 
 
 var listAnswers = document.querySelector(".list-answers");
 var startButton = document.querySelector(".start-button");
-var resetButton = document.querySelector(".reset-button");
+
+// var resetButton = document.querySelector(".reset-button");
 
 var question = document.getElementById("question")
 
-var choice1 = document.getElementById("choice1")
-var choice2 = document.getElementById("choice2")
-var choice3 = document.getElementById("choice3")
-var choice4 = document.getElementById("choice4")
+var choiceA = document.getElementById("choice1")
+var choiceB = document.getElementById("choice2")
+var choiceC = document.getElementById("choice3")
+var choiceD = document.getElementById("choice4")
 
-var startQ = document.querySelector("#front-page");
-var endQ = document.querySelector("#end-page");
-// var h1 = document.querySelector ('h1')
-// var title=document.getElementById("titleQ");
-// title.setAttribute("style", '100px', 'center');
-// h1.append(title);
 
-// resetButton.setAttribute;
+
+
+var startQ = document.querySelector(".front-page");
+var endQz = document.querySelector("#end-page");
+var qBody = document.querySelector ("#quizBody");
+var topScore = document.querySelector ("#top-score");
+
 
 
 var questionArr=[{
     question:"this is question #1",
-    choiceA: "1this is wrong",
-    choiceB: "1this is wrong",
-    choiceC: "1this is correct",
-    choiceD: "1this is wrong",
-    correct: "1this is correct"
+    choiceA: "1this is wrong", correct: false,
+    choiceB: "1this is wrong", correct: false,
+    choiceC: "1this is correct", correct: true,
+    choiceD: "1this is wrong", correct: false,
+    
 },{
     question:"this is question #2",
-    choiceA: "2this is correct",
-    choiceB: "2this is wrong",
-    choiceC: "2this is wrong",
-    choiceD: "2this is wrong",
-    correct: "2this is correct"
+    choiceA: "2this is correct", correct: true,
+    choiceB: "2this is wrong", correct: false,
+    choiceC: "2this is wrong", correct: false,
+    choiceD: "2this is wrong",correct: false,
+   
 },{
     question:"this is question #3",
-    choiceA: "3this is wrong",
-    choiceB: "3this is wrong",
-    choiceC: "3this is wrong",
-    choiceD: "3this is correct",
-    correct: "3this is correct"
+    choiceA: "3this is wrong", correct: false,
+    choiceB: "3this is wrong", correct: false,
+    choiceC: "3this is wrong", correct: false,
+    choiceD: "3this is correct", correct: true,
+    
 },{
     question:"this is question #4",
-    choiceA: "4this is correct",
-    choiceB: "4this is wrong",
-    choiceC: "4this is wrong",
-    choiceD: "4this is wrong",
-    correct: "4this is correct"
+    choiceA: "4this is correct", correct: true,
+    choiceB: "4this is wrong", correct: false,
+    choiceC: "4this is wrong", correct: false,
+    choiceD: "4this is wrong", correct: false,
+    
 }
 ]
 
 
 
-// function setTime() {
-//   // Sets interval in variable
-//   var timerInterval = setInterval(function() {
-//     secondsLeft--;
-//     timeEl.textContent = secondsLeft;
-
-//     if(secondsLeft === 0) {
-      
-//       clearInterval(timerInterval);
-      
-//     //   sendMessage();
-//     }
-
-//   }, 1000);
-// }
-
-// // Function to create and append colorsplosion image
-// function sendMessage() {
-//   timeEl.textContent = " ";
-//   var imgEl = document.createElement("img");
-//   imgEl.setAttribute("src", "images/image_1.jpg");
-//   mainEl.appendChild(imgEl);
-
-// }
-
-// setTime();
+function StartScreen (){
+    startQ.style.display = "block"; 
+    endQz.style.display = "none"; 
+    qBody.style.display = "none"; 
+    topScore.style.display = "none";
 
 
+}
 
-// start quiz and switch from front page to questions
+StartScreen();
+
+
 
 function startQuiz() {
 
@@ -98,22 +82,29 @@ function startQuiz() {
     questionindex = 0;
     renderQuestion()
     startTimer()
-    startButton.disabled=true;
     startQ.style.display = "block";
     for(var i = 0; i < questionArr.length; i++){
         startQ.style.display = "none";
     }
+    qBody.style.display = "block"; 
+    topScore.style.display = "none";
     
 }
-   
+
 
 
 function startTimer(){
 
-    var timerCount=setInterval(function(){
+    var timerInterval=setInterval(function(){
+        console.log(timerCount);
         timerCount--; 
-        if (timerCount===0){
-            stop(timer)};
+        timerEl.textContent = "Time left " + timerCount;
+        if(timerCount === 0) {
+            presentScore();
+            clearInterval(timerInterval);
+            
+          }
+       
     },1000);
  
     
@@ -135,13 +126,24 @@ function renderQuestion(){
    choice4.textContent=questionArr[questionindex].choiceD
 
 }
-function checkAnswer(event){
-    console.log (event);
+function checkAnswer(){
+    // if (answer == "true"){score++; alert("Correct!")}
+    // else {alert ("Wrong!")};
     questionindex += 1;
     renderQuestion();
 
 }
 
+
+function presentScore (){
+    qBody.style.display = "none";
+    endQz.style.display = "block";
+
+    
+}
+
+
 document.querySelector(".list-answers").addEventListener("click", checkAnswer)
+
 
 
